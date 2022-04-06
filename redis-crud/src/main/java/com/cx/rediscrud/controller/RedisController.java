@@ -72,6 +72,16 @@ public class RedisController {
     }
 
     /**
+     * 删除key
+     * @return
+     */
+    @RequestMapping("deleteKey")
+    public Boolean deleteKey(String params){
+        Boolean deleteKey = redisUtil.deleteKey(params);
+        return deleteKey;
+    }
+
+    /**
      * 获取缓存key信息
      * @return
      */
@@ -86,11 +96,11 @@ public class RedisController {
      * @return
      */
     @RequestMapping("serRedisList")
-    public Boolean serRedisList(){
+    public Boolean serRedisList(String params1,String params2,String params3){
         List<Object> objectList=new ArrayList<>();
-        objectList.add("张三");
-        objectList.add("李四");
-        objectList.add("王五");
+        objectList.add(params1);
+        objectList.add(params2);
+        objectList.add(params3);
 
         Boolean b = redisUtil.lSet("DomeValue3",objectList);
         return b;

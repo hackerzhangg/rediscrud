@@ -86,6 +86,11 @@ public class RedisUtil {
         }
     }
 
+    public Boolean deleteKey(String key){
+        Boolean redisBoolean = redisTemplate.delete(key);
+        return redisBoolean;
+    }
+
     /**
      * 普通缓存获取
      *
